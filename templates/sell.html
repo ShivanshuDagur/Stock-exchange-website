@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell Shares
+{% endblock %}
+
+{% block main %}
+<form action="/sell" method = 'POST'>
+  <select name="symbol">
+     {%for sym in stock%}
+    <option value="{{sym['symbol']}}">{{sym['symbol']}} :{{sym['SUM(number_of_shares)']}}</option>
+     {%endfor%}
+
+  </select>
+  <br><br><br>
+   <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="Number of shares" type="text"/>
+        </div>
+  <br>
+  <button class="btn btn-primary" type="submit">Sell</button>
+</form>
+
+<!--    <!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
+<!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div class="container">-->
+<!--  <div class="dropdown">-->
+<!--    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Symbol-->
+<!--    <span class="caret"></span></button>-->
+<!--    <ul class="dropdown-menu">-->
+<!--        {%for sym in stock%}-->
+<!--      <li><a href="#">sym['symbol']</a></li>-->
+<!--        {%endfor%}-->
+<!--        <div class="form-group">-->
+<!--            <input autocomplete="off" autofocus class="form-control" name="number" placeholder="Number of shares" type="text"/>-->
+<!--        </div>-->
+      <!--<li><a href="#">CSS</a></li>-->
+      <!--<li><a href="#">JavaScript</a></li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+
+{% endblock %}

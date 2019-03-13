@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+   .tdhead{text-align: center;}
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="tdhead">Symbol</th>
+        <th class="tdhead">Name</th>
+        <th class="tdhead">Shares</th>
+        <th class="tdhead">Price</th>
+        <th class="tdhead">TOTAL</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {%for stock in shares%}
+        <tr>
+          {%for i in stock%}
+            <td>{{i}}</td>
+          {%endfor%}
+        </tr>
+        {%endfor%}
+
+
+      <tr>
+        <td>Cash</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{money}}</td>
+
+      </tr>
+      <tr>
+      	<td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>{{grandtotal}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+{% endblock %}

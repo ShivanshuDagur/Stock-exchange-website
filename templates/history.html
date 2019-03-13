@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+   .tdhead{text-align: center;}
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="tdhead">ID</th>
+        <th class="tdhead">Username</th>
+        <th class="tdhead">Symbol</th>
+        <th class="tdhead">Time</th>
+        <th class="tdhead">No. of shares</th>
+        <th class="tdhead">Price @ transaction in $</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {%for i in passbook%}
+        <tr>
+
+            <td>{{i["id"]}}</td>
+            <td>{{i["username"]}}</td>
+            <td>{{i["symbol"]}}</td>
+            <td>{{i["date_time"]}}</td>
+            <td>{{i["number_of_shares"]}}</td>
+            <td>{{i["price_at_purchase"]}}</td>
+
+        </tr>
+        {%endfor%}
+
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
+{% endblock %}
